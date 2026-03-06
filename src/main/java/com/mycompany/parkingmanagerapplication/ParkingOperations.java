@@ -7,7 +7,14 @@ package com.mycompany.parkingmanagerapplication;
 /**
  *
  * @author User
+ * The ParkingOperations interface defines the core behaviours required in the application, 
+ *including adding, removing, updating vehicles, and viewing available parking spaces.
  */
-public class ParkingOperations {
+public interface ParkingOperations {
+    
+    void addVehicle(Vehicle v); 
+    void removeVehicle(String plate); 
+    void updateVehicle(String plate, String newOwner); 
+    String viewParkingSpace(); 
     
 }
