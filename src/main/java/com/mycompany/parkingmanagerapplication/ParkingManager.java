@@ -4,10 +4,81 @@
  */
 package com.mycompany.parkingmanagerapplication;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 /**
  *
- * @author User
+ * @author Maria Eduarda Tavares Berti The ParkingManager class implements the
+ * ParkingOperations interface and contains the main logic of the application.
  */
-public class ParkingManager {
-    
-}
+public class ParkingManager implements ParkingOperations {
+
+    private ArrayList<Car> parkedCars = new ArrayList<>(); //to store parked cars using ArrayList
+    private ArrayList<Motorcycle> parkedMotos = new ArrayList<>(); //Store parked motos using ArrayList
+    private Queue<Vehicle> waitingQueue = new LinkedList<>(); //Store waiting queue using LinkedList 
+    private Stack<Vehicle> parkingHistory = new Stack<>(); //store parking History using 
+
+    private int totalCarCarSpace = 10; //defines the available parking spaces for cars
+    private int totalMotorcycleSpace = 5; //defines the available parking spaces for motorcycles
+
+    //add method to add motorcycle and car 
+    @Override
+    public void addVehicle(Vehicle v) {
+
+        //if have space the car is add to parkedCars, if dont have space, the car is add to waiting queue 
+        if (v instanceof Car) {
+
+            if (parkedCars.size() < totalCarCarSpace) {
+                parkedCars.add((Car) v);
+            } else {
+                waitingQueue.add(v);
+            }
+
+            //if have space on the motorcycle parking the motorcycle is add to parkedMotos, if dont have space, the Motorcycle is add to waiting queue
+        } else if (v instanceof Motorcycle) {
+
+            if (parkedMotos.size() < totalMotorcycleSpace) {
+                parkedMotos.add((Motorcycle) v);
+            } else {
+                waitingQueue.add(v);
+            }
+        }
+    }
+
+    @Override
+    //remove method to remove a vehicle from parking 
+
+    //when the user type the plate of the car in the remove space, the car will be removed from the parking space and will be add to history parking 
+    public void removeVehicle(String plate) {
+        for (Car c : parkedCars) {
+            if (c.getPlateNumber().equals(plate)) {
+                parkedCars.remove(c);
+                parkingHistory.push(c);
+                return;
+            }
+        }
+
+        //when the user type the plate of the motorcycle in the remove space, the motorcycle will be removed from the parking space and will be add to history parking 
+        for (Motorcycle m : parkedMotos) {
+            if (m.getPlateNumber().equals(plate)) {
+                parkedMotos.remove(m);
+                parkingHistory.push(m);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void updateVehicle(String plate, String newOwner) {
+
+    }
+
+    @Override
+    public String viewParkingSpace() {
+
+    }
+
+} //end of the class 

@@ -11,6 +11,8 @@ package com.mycompany.parkingmanagerapplication;
 public class ParkingManagerApplication {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ParkingManagerGUI manager = new ParkingManagerGUI();
+        manager.setVisible(true); 
+        
     }
 }

@@ -7,7 +7,17 @@ package com.mycompany.parkingmanagerapplication;
 /**
  *
  * @author User
+ * The Car class extends the Vehicle abstract class and is responsible for storing the attributes specific to cars.
  */
-public class Car {
+public class Car extends Vehicle {
+
+    public Car(String plateNumber, String ownerName) {
+        super(plateNumber, ownerName);
+    }
+
+    @Override
+    public String displayInfo() {
+        return "Car plate: " + plateNumber + " Owner: " + ownerName;
+    }
     
 }

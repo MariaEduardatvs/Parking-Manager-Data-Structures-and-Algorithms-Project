@@ -7,7 +7,20 @@ package com.mycompany.parkingmanagerapplication;
 /**
  *
  * @author User
+ * The Motorcycle class extends the Vehicle abstract class and is responsible for storing the attributes specific to motorcycles.
  */
-public class Motorcycle {
+public class Motorcycle extends Vehicle {
+
+    public Motorcycle(String plateNumber, String ownerName) {
+        super(plateNumber, ownerName);
+    }
+
+    @Override
+    public String displayInfo() {
+        return "Motorcycle plate: " + plateNumber + " Owner: " + ownerName;
+    }
+    
+    
+    
     
 }
