@@ -6,7 +6,7 @@ package com.mycompany.parkingmanagerapplication;
 
 /**
  *
- * @author User
+ * @author Maria Eduarda Tavares Berti
  */
 public class ParkingManagerApplication {
 

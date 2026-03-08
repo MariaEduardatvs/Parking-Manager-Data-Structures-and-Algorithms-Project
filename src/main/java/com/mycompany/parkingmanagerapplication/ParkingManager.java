@@ -21,7 +21,7 @@ public class ParkingManager implements ParkingOperations {
     private Queue<Vehicle> waitingQueue = new LinkedList<>(); //Store waiting queue using LinkedList 
     private Stack<Vehicle> parkingHistory = new Stack<>(); //store parking History using 
 
-    private int totalCarCarSpace = 10; //defines the available parking spaces for cars
+    private int totalCarSpace = 10; //defines the available parking spaces for cars
     private int totalMotorcycleSpace = 5; //defines the available parking spaces for motorcycles
 
     //add method to add motorcycle and car 
@@ -31,7 +31,7 @@ public class ParkingManager implements ParkingOperations {
         //if have space the car is add to parkedCars, if dont have space, the car is add to waiting queue 
         if (v instanceof Car) {
 
-            if (parkedCars.size() < totalCarCarSpace) {
+            if (parkedCars.size() < totalCarSpace) {
                 parkedCars.add((Car) v);
             } else {
                 waitingQueue.add(v);
@@ -72,13 +72,31 @@ public class ParkingManager implements ParkingOperations {
     }
 
     @Override
+    //this update method changes the name of the owner of a parked car or motorcycle using the plate as a reference
     public void updateVehicle(String plate, String newOwner) {
+        for (Car c : parkedCars) {
+            if (c.getPlateNumber().equals(plate)) {
+                c.setOwnerName(newOwner);
+                return;
+            }
+        }
 
+        for (Motorcycle m : parkedMotos) {
+            if (m.getPlateNumber().equals(plate)) {
+                m.setOwnerName(newOwner);
+                return;
+            }
+        }
     }
 
+    
+    //This method shows the available parking spaces for car and motorcycles 
     @Override
     public String viewParkingSpace() {
+        int carAvailable = totalCarSpace - parkedCars.size();
+        int motoAvailable = totalMotorcycleSpace - parkedMotos.size();
 
+        return "Car parking spaces available: " + carAvailable + " Motorcycle parking spaces available: " + motoAvailable;
     }
 
 } //end of the class 

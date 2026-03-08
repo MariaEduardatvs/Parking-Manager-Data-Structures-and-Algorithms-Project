@@ -6,7 +6,7 @@ package com.mycompany.parkingmanagerapplication;
 
 /**
  *
- * @author User
+ * @author Maria Eduarda Tavares Berti
  * The Car class extends the Vehicle abstract class and is responsible for storing the attributes specific to cars.
  */
 public class Car extends Vehicle {

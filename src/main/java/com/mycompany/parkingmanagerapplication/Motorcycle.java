@@ -6,7 +6,7 @@ package com.mycompany.parkingmanagerapplication;
 
 /**
  *
- * @author User
+ * @author Maria Eduarda Tavares Berti
  * The Motorcycle class extends the Vehicle abstract class and is responsible for storing the attributes specific to motorcycles.
  */
 public class Motorcycle extends Vehicle {
