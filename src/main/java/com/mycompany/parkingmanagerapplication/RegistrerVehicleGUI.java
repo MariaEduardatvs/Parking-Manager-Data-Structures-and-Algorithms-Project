@@ -9,12 +9,13 @@ package com.mycompany.parkingmanagerapplication;
  * @author User
  */
 public class RegistrerVehicleGUI extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistrerVehicleGUI.class.getName());
 
-   private ParkingManager manager;
+    private ParkingManager manager;
+
     public RegistrerVehicleGUI() {
-        manager=new ParkingManager(); 
+        manager = new ParkingManager();
         initComponents();
     }
 
@@ -111,6 +112,11 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
         });
 
         removeBtn.setText("Remove Vehicle");
+        removeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeBtnActionPerformed(evt);
+            }
+        });
 
         updateBtn.setText("Update Vehicle");
 
@@ -210,17 +216,23 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_NameFieldActionPerformed
 
     private void AddVehicleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddVehicleBtnActionPerformed
-        String owner =NameField.getText(); 
-        String plate = plateField.getText(); 
-        if(CarBtn.isSelected()){
-        Car car=new Car(plate,owner);
-        manager.addVehicle(car); 
-        } else if(motoBtn.isSelected()){
-        Motorcycle moto=new Motorcycle(plate, owner);
-        manager.addVehicle(moto); 
+        String owner = NameField.getText();
+        String plate = plateField.getText();
+        if (CarBtn.isSelected()) {
+            Car car = new Car(plate, owner);
+            manager.addVehicle(car);
+        } else if (motoBtn.isSelected()) {
+            Motorcycle moto = new Motorcycle(plate, owner);
+            manager.addVehicle(moto);
         }
         javax.swing.JOptionPane.showMessageDialog(this, "Vehicle Added Successfully");
     }//GEN-LAST:event_AddVehicleBtnActionPerformed
+
+    private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
+        String plate=plateField.getText(); 
+        manager.removeVehicle(plate);
+        javax.swing.JOptionPane.showMessageDialog(this, "Vehicle Removed");
+    }//GEN-LAST:event_removeBtnActionPerformed
 
     /**
      * @param args the command line arguments
