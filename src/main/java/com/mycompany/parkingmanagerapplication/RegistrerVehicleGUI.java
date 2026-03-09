@@ -6,7 +6,7 @@ package com.mycompany.parkingmanagerapplication;
 
 /**
  *
- * @author User
+ * @author Maria Eduarda Tavares
  */
 public class RegistrerVehicleGUI extends javax.swing.JFrame {
 
@@ -119,6 +119,11 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
         });
 
         updateBtn.setText("Update Vehicle");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -229,10 +234,21 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_AddVehicleBtnActionPerformed
 
     private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
-        String plate=plateField.getText(); 
+        String plate = plateField.getText();
         manager.removeVehicle(plate);
         javax.swing.JOptionPane.showMessageDialog(this, "Vehicle Removed");
     }//GEN-LAST:event_removeBtnActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        String plate = plateField.getText();
+        String owner = NameField.getText();
+
+        manager.updateVehicle(plate, owner);
+
+        javax.swing.JOptionPane.showMessageDialog(this, "Vehicle Updated");
+
+
+    }//GEN-LAST:event_updateBtnActionPerformed
 
     /**
      * @param args the command line arguments
