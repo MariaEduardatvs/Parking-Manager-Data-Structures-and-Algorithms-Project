@@ -11,7 +11,7 @@ import java.util.Stack;
 
 /**
  *
- * @author Maria Eduarda Tavares Berti The ParkingManager class implements the
+ * @author Maria Eduarda Tavares Berti. The ParkingManager class implements the
  * ParkingOperations interface and contains the main logic of the application.
  */
 public class ParkingManager implements ParkingOperations {
@@ -89,7 +89,6 @@ public class ParkingManager implements ParkingOperations {
         }
     }
 
-    
     //This method shows the available parking spaces for car and motorcycles 
     @Override
     public String viewParkingSpace() {

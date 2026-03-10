@@ -70,6 +70,7 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Owner Name: ");
 
         NameField.setBackground(new java.awt.Color(153, 153, 153));
@@ -79,10 +80,12 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Plate Number:");
 
         plateField.setBackground(new java.awt.Color(153, 153, 153));
 
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Vehicle Type:");
 
         CarBtn.setText("Car");
