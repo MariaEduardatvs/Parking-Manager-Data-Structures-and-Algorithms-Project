@@ -209,11 +209,11 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CarBtnKeyPressed
 
     private void motoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motoBtnActionPerformed
-        // TODO add your handling code here:
+        CarBtn.setSelected(false); //if motoBtn is selected, the carBtn can not be selected 
     }//GEN-LAST:event_motoBtnActionPerformed
 
     private void CarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CarBtnActionPerformed
-        // TODO add your handling code here:
+         motoBtn.setSelected(false); //if the carBtn is selected, the motoBtn can not be selected 
     }//GEN-LAST:event_CarBtnActionPerformed
 
     private void NameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameFieldActionPerformed
