@@ -33,7 +33,7 @@ public class ViewParkingSpaceGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ParkingTextArea = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        ViewParkingSpaceBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,9 +69,14 @@ public class ViewParkingSpaceGUI extends javax.swing.JFrame {
         ParkingTextArea.setRows(5);
         jScrollPane1.setViewportView(ParkingTextArea);
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setForeground(new java.awt.Color(0, 51, 204));
-        jButton1.setText("Click here to see available parking spaces");
+        ViewParkingSpaceBtn.setBackground(new java.awt.Color(204, 204, 204));
+        ViewParkingSpaceBtn.setForeground(new java.awt.Color(0, 51, 204));
+        ViewParkingSpaceBtn.setText("Click here to see available parking spaces");
+        ViewParkingSpaceBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewParkingSpaceBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,7 +84,7 @@ public class ViewParkingSpaceGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(ViewParkingSpaceBtn)
                 .addGap(70, 70, 70))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -94,7 +99,7 @@ public class ViewParkingSpaceGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(ViewParkingSpaceBtn)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59))
@@ -113,6 +118,12 @@ public class ViewParkingSpaceGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ViewParkingSpaceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewParkingSpaceBtnActionPerformed
+        String result = manager.viewParkingSpace(); //call the viewParkingSpace method from the ParkingManager class 
+
+        ParkingTextArea.setText(result); //is going to display the text in the parkingTextArea
+    }//GEN-LAST:event_ViewParkingSpaceBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,7 +152,7 @@ public class ViewParkingSpaceGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea ParkingTextArea;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ViewParkingSpaceBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
