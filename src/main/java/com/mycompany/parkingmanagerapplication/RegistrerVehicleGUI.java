@@ -7,6 +7,7 @@ package com.mycompany.parkingmanagerapplication;
 /**
  *
  * @author Maria Eduarda Tavares
+ * 
  */
 public class RegistrerVehicleGUI extends javax.swing.JFrame {
 
