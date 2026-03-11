@@ -19,8 +19,8 @@ The application helps manage parking spaces for cars and motorcycles, allowing u
 
 ### Inheritance
 
-The Vehicle class is the parent class.
-Car and Motorcycle inherit from the Vehicle class.
+The ```Vehicle``` class is the parent class.
+```Car``` and ```Motorcycle``` inherit from the Vehicle class.
 
 ### Polymorphism
 
@@ -82,6 +82,8 @@ The application uses Java Swing and was designed using NetBeans GUI Builder.
 - Manage Vehicle
 
 - View Parking Spaces
+
+- View Parking History Interface
 
 - Exit
 
