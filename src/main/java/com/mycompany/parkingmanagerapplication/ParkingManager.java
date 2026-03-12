@@ -18,8 +18,9 @@ public class ParkingManager implements ParkingOperations {
 
     private ArrayList<Car> parkedCars = new ArrayList<>(); //to store parked cars using ArrayList
     private ArrayList<Motorcycle> parkedMotos = new ArrayList<>(); //Store parked motos using ArrayList
-    private Queue<Vehicle> waitingQueue = new LinkedList<>(); //Store waiting queue using LinkedList 
-    private Stack<Vehicle> parkingHistory = new Stack<>(); //store parking History using 
+    
+    private MyQueue waitingQueue=new MyQueue(); //  to store vehicles in the waiting queue 
+    private MyStack parkingHistory=new MyStack(); //to store parking history of the vehicles 
 
     private int totalCarSpace = 10; //defines the available parking spaces for cars
     private int totalMotorcycleSpace = 5; //defines the available parking spaces for motorcycles
@@ -34,7 +35,7 @@ public class ParkingManager implements ParkingOperations {
             if (parkedCars.size() < totalCarSpace) {
                 parkedCars.add((Car) v);
             } else {
-                waitingQueue.add(v);
+                waitingQueue.enqueue(v);
             }
 
             //if have space on the motorcycle parking the motorcycle is add to parkedMotos, if dont have space, the Motorcycle is add to waiting queue
@@ -43,7 +44,7 @@ public class ParkingManager implements ParkingOperations {
             if (parkedMotos.size() < totalMotorcycleSpace) {
                 parkedMotos.add((Motorcycle) v);
             } else {
-                waitingQueue.add(v);
+                waitingQueue.enqueue(v);
             }
         }
     }
@@ -96,6 +97,10 @@ public class ParkingManager implements ParkingOperations {
         int motoAvailable = totalMotorcycleSpace - parkedMotos.size();
 
         return "Car parking spaces available: " + carAvailable + " Motorcycle parking spaces available: " + motoAvailable;
+    }
+    
+    public String viewHistory(){
+    return parkingHistory.showHistory(); 
     }
 
 } //end of the class 
