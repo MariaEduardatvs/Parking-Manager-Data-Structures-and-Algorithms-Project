@@ -6,12 +6,12 @@ package com.mycompany.parkingmanagerapplication;
 
 /**
  *
- * @author User
+ * @author Maria Eduarda Tavares Berti 
  */
 public interface StackInterface {
     
-    void push(Object item); // add the object on the top of the stack 
-    Object pop(); // remove the object from the top of the stack 
-    boolean isEmpty(); //check if the stack is empty or not 
-    int size(); //retorn the number of objects in the stack 
+    void push(Object item); // method to add the object on the top of the stack 
+    Object pop(); // method to remove the object from the top of the stack 
+    boolean isEmpty(); //method to check if the stack is empty or not 
+    int size(); //method to retorn the number of objects in the stack 
 }
