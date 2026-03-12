@@ -7,7 +7,7 @@ package com.mycompany.parkingmanagerapplication;
 /**
  *
  * @author Maria Eduarda Tavares Berti
- * The ParkingOperations interface defines the core behaviours required in the application, 
+ * The ParkingOperations interface defines the core behaviors required in the application, 
  *including adding, removing, updating vehicles, and viewing available parking spaces.
  */
 public interface ParkingOperations {

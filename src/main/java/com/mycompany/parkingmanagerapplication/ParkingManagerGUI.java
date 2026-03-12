@@ -160,19 +160,19 @@ public class ParkingManagerGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
-        new RegistrerVehicleGUI().setVisible(true);
+        new RegistrerVehicleGUI().setVisible(true); //when the user clicks in RegisterBtn a RegisterVehicleGUI interface will appear 
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
     private void ManageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageBtnActionPerformed
-        new RegistrerVehicleGUI().setVisible(true);
+        new RegistrerVehicleGUI().setVisible(true); //when the user clicks in ManageBtn a RegisterVehicleGUI interface will appear 
     }//GEN-LAST:event_ManageBtnActionPerformed
 
     private void ExitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitBtnActionPerformed
-         this.dispose();
+         this.dispose(); //to exit the interface 
     }//GEN-LAST:event_ExitBtnActionPerformed
 
     private void ViewParkingSpaceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewParkingSpaceBtnActionPerformed
-         new ViewParkingSpaceGUI().setVisible(true); 
+         new ViewParkingSpaceGUI().setVisible(true); //when the user clicks in viewParkingSpaceBtn a ViewParkingSpaceGUI interface will appear 
     }//GEN-LAST:event_ViewParkingSpaceBtnActionPerformed
 
     /**
