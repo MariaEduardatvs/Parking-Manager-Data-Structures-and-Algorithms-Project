@@ -7,6 +7,7 @@ package com.mycompany.parkingmanagerapplication;
 /**
  *
  * @author Maria Eduarda Tavares Berti 
+ * interface with methods to be implemented in the MyStack class 
  */
 public interface StackInterface {
     

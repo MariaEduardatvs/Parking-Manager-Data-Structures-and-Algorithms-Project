@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Maria Eduarda 
+ * @author Maria Eduarda Tavares Berti
  */
 public class MyStack implements StackInterface {
     private ArrayList<Vehicle> stack; //create the stack to store vehicles 
