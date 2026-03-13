@@ -35,5 +35,5 @@ public abstract class Vehicle {
     
     
     
-    public abstract String displayInfo(); 
+    public abstract String displayInfo();
 }

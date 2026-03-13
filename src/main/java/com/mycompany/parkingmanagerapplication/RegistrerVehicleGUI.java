@@ -7,7 +7,7 @@ package com.mycompany.parkingmanagerapplication;
 /**
  *
  * @author Maria Eduarda Tavares
- * 
+ *
  */
 public class RegistrerVehicleGUI extends javax.swing.JFrame {
 
@@ -15,10 +15,17 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
 
     private ParkingManager manager;
 
-    public RegistrerVehicleGUI() {
-        manager = new ParkingManager();
+    public RegistrerVehicleGUI(ParkingManager manager) {
+        this.manager = manager;;
         initComponents();
     }
+    
+    public RegistrerVehicleGUI() {
+
+    this.manager = new ParkingManager();
+
+    initComponents();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -163,8 +170,7 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
                         .addComponent(removeBtn))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -217,7 +223,7 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_motoBtnActionPerformed
 
     private void CarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CarBtnActionPerformed
-         motoBtn.setSelected(false); //if the carBtn is selected, the motoBtn can not be selected 
+        motoBtn.setSelected(false); //if the carBtn is selected, the motoBtn can not be selected 
     }//GEN-LAST:event_CarBtnActionPerformed
 
     private void NameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameFieldActionPerformed
@@ -228,11 +234,11 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
         String owner = NameField.getText(); //get the name from nameField and store in the variable owner 
         String plate = plateField.getText(); //get the plate from plateField and store in the variable plate 
         //if the user select CarBtn button, this method will run 
-        if (CarBtn.isSelected()) { 
+        if (CarBtn.isSelected()) {
             Car car = new Car(plate, owner); //create a new car object with parameters plate and owner
             manager.addVehicle(car); //execute the method addVehicle from manager class (ParkingManager class) 
             //if the user select MotoBtn this method will run  
-        } else if (motoBtn.isSelected()) { 
+        } else if (motoBtn.isSelected()) {
             Motorcycle moto = new Motorcycle(plate, owner);//create a new Motorcycle object with parameters plate and owner 
             manager.addVehicle(moto); //Execute the method addVehicle from manager class (ParkingManager class) 
         }
@@ -242,7 +248,7 @@ public class RegistrerVehicleGUI extends javax.swing.JFrame {
     private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
         String plate = plateField.getText(); //stores the plate number from the plateField in a variable plate so we can remove a vehicle using plate number 
         manager.removeVehicle(plate); //execute the method removeVehicle from the manager class (ParkingManager class) with parameter plate 
-        javax.swing.JOptionPane.showMessageDialog(this, "Vehicle Removed"); 
+        javax.swing.JOptionPane.showMessageDialog(this, "Vehicle Removed");
     }//GEN-LAST:event_removeBtnActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed

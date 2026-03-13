@@ -9,9 +9,10 @@ import java.util.ArrayList;
 /**
  *
  * @author Maria Eduarda Tavares Berti
+ * Class to store vehicle operation records using ParkingRecord objects.
  */
 public class MyStack implements StackInterface {
-    private ArrayList<Vehicle> stack; //create the stack to store vehicles 
+    private ArrayList<ParkingRecord> stack; //create the stack to store ParkingRecord
     
     //constructor 
     public MyStack(){
@@ -22,7 +23,7 @@ public class MyStack implements StackInterface {
     //method to add a object on the top of the stack
     @Override 
     public void push(Object item){ 
-    stack.add(0, (Vehicle)item); //convert the object to a vehicle and add to index 0 which is the top of the stack
+    stack.add(0, (ParkingRecord)item); //convert the object to a ParkingRecord and add to index 0 which is the top of the stack
     }
     
     
@@ -31,7 +32,7 @@ public class MyStack implements StackInterface {
     public Object pop(){
         //check if the stack is not empty
         if(!stack.isEmpty()){
-        return stack.remove(0); //remove the first object on the top of the stack 
+        return stack.remove(0); //remove object on the top of the stack 
         }
         return null; 
     }
@@ -43,14 +44,20 @@ public class MyStack implements StackInterface {
     }
     
     //history of the vehicles 
-    public String showHistory(){
-    String history=""; //String to store the information of the vehicles
-    //for each Vehicle in the stack 
-    for(Vehicle v:stack){
-    history+=v.displayInfo(); //add the information from vehicle to the String and displayInfo() which is a method from Vehicle class 
+   public String showHistory() {
+
+    String history = ""; // String to store all the parking history information
+
+    // For each ParkingRecord in the stack
+    for (ParkingRecord record : stack) {
+        history += record.displayRecord() + "\n"; 
+        // Add the record information to the history
+        // displayRecord() is a method from the ParkingRecord class that returns the record data
+        // "\n" adds a new line to separate each record
     }
-    return history; //retorn all the history 
-    }
+
+    return history; // Return the full history of all records
+}
 
     @Override
     public boolean isEmpty() {

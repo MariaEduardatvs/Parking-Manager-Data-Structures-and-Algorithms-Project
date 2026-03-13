@@ -14,11 +14,17 @@ public class ViewParkingSpaceGUI extends javax.swing.JFrame {
 
     private ParkingManager manager;
 
-    public ViewParkingSpaceGUI() {
-        manager = new ParkingManager();
+    public ViewParkingSpaceGUI(ParkingManager manager) {
+       this.manager = manager;
+        initComponents();
+    }
+    
+     public ViewParkingSpaceGUI() {
+        this.manager = new ParkingManager(); 
         initComponents();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

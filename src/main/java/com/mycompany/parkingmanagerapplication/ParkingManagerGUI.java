@@ -6,16 +6,16 @@ package com.mycompany.parkingmanagerapplication;
 
 /**
  *
- * @author Maria Eduarda Tavares 
+ * @author Maria Eduarda Tavares
  */
 public class ParkingManagerGUI extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ParkingManagerGUI.class.getName());
 
     private ParkingManager manager;
-    
-    public ParkingManagerGUI() { 
-        manager=new ParkingManager(); 
+
+    public ParkingManagerGUI() {
+        manager = new ParkingManager();
         initComponents();
     }
 
@@ -36,6 +36,7 @@ public class ParkingManagerGUI extends javax.swing.JFrame {
         ViewParkingSpaceBtn = new javax.swing.JButton();
         ManageBtn = new javax.swing.JButton();
         ExitBtn = new javax.swing.JButton();
+        viewHistoryBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,6 +105,15 @@ public class ParkingManagerGUI extends javax.swing.JFrame {
             }
         });
 
+        viewHistoryBtn.setBackground(new java.awt.Color(204, 204, 204));
+        viewHistoryBtn.setForeground(new java.awt.Color(0, 51, 153));
+        viewHistoryBtn.setText("View Parking History ");
+        viewHistoryBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewHistoryBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -120,11 +130,13 @@ public class ParkingManagerGUI extends javax.swing.JFrame {
                         .addGap(43, 43, 43))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(ManageBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(RegisterBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ViewParkingSpaceBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ExitBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ExitBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(ManageBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(RegisterBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ViewParkingSpaceBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                        .addComponent(viewHistoryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(116, 116, 116))
         );
         jPanel1Layout.setVerticalGroup(
@@ -132,17 +144,19 @@ public class ParkingManagerGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(45, 45, 45)
                 .addComponent(RegisterBtn)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ManageBtn)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ViewParkingSpaceBtn)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewHistoryBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ExitBtn)
-                .addGap(90, 90, 90))
+                .addGap(87, 87, 87))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,20 +174,32 @@ public class ParkingManagerGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
-        new RegistrerVehicleGUI().setVisible(true); //when the user clicks in RegisterBtn a RegisterVehicleGUI interface will appear 
+        RegistrerVehicleGUI registerGUI = new RegistrerVehicleGUI(manager);
+
+        registerGUI.setVisible(true);  //when the user clicks in RegisterBtn a RegisterVehicleGUI interface will appear 
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
     private void ManageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageBtnActionPerformed
-        new RegistrerVehicleGUI().setVisible(true); //when the user clicks in ManageBtn a RegisterVehicleGUI interface will appear 
+        RegistrerVehicleGUI registerGUI = new RegistrerVehicleGUI(manager);
+
+        registerGUI.setVisible(true); //when the user clicks in ManageBtn a RegisterVehicleGUI interface will appear 
     }//GEN-LAST:event_ManageBtnActionPerformed
 
     private void ExitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitBtnActionPerformed
-         this.dispose(); //to exit the interface 
+        this.dispose(); //to exit the interface 
     }//GEN-LAST:event_ExitBtnActionPerformed
 
     private void ViewParkingSpaceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewParkingSpaceBtnActionPerformed
-         new ViewParkingSpaceGUI().setVisible(true); //when the user clicks in viewParkingSpaceBtn a ViewParkingSpaceGUI interface will appear 
+        ViewParkingSpaceGUI viewGUI = new ViewParkingSpaceGUI(manager);
+
+        viewGUI.setVisible(true); //when the user clicks in viewParkingSpaceBtn a ViewParkingSpaceGUI interface will appear 
     }//GEN-LAST:event_ViewParkingSpaceBtnActionPerformed
+
+    private void viewHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewHistoryBtnActionPerformed
+        ViewHistoryGUI historyGUI = new ViewHistoryGUI(manager);
+
+        historyGUI.setVisible(true); //when the user clicks in the ViewHistoryBtn a ViewHistoryGUI interface will appear 
+    }//GEN-LAST:event_viewHistoryBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,5 +235,6 @@ public class ParkingManagerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton viewHistoryBtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,11 +8,12 @@ package com.mycompany.parkingmanagerapplication;
  *
  * @author Maria Eduarda Tavares Berti
  */
-public class ParkingManagerApplication {
+public class ParkingManagerApp {
 
     public static void main(String[] args) {
         ParkingManagerGUI manager = new ParkingManagerGUI();
         manager.setVisible(true); 
-        
     }
+        
+    
 }

@@ -18,9 +18,9 @@ public class ParkingManager implements ParkingOperations {
 
     private ArrayList<Car> parkedCars = new ArrayList<>(); //to store parked cars using ArrayList
     private ArrayList<Motorcycle> parkedMotos = new ArrayList<>(); //Store parked motos using ArrayList
-    
-    private MyQueue waitingQueue=new MyQueue(); //  to store vehicles in the waiting queue 
-    private MyStack parkingHistory=new MyStack(); //to store parking history of the vehicles 
+
+    private MyQueue waitingQueue = new MyQueue(); //  to store vehicles in the waiting queue 
+    private MyStack parkingHistory = new MyStack(); //to store parking history of the vehicles 
 
     private int totalCarSpace = 10; //defines the available parking spaces for cars
     private int totalMotorcycleSpace = 5; //defines the available parking spaces for motorcycles
@@ -34,6 +34,7 @@ public class ParkingManager implements ParkingOperations {
 
             if (parkedCars.size() < totalCarSpace) {
                 parkedCars.add((Car) v);
+                parkingHistory.push(new ParkingRecord("Added", v)); //to register the action to the parkingHistory 
             } else {
                 waitingQueue.enqueue(v);
             }
@@ -43,6 +44,7 @@ public class ParkingManager implements ParkingOperations {
 
             if (parkedMotos.size() < totalMotorcycleSpace) {
                 parkedMotos.add((Motorcycle) v);
+                parkingHistory.push(new ParkingRecord("Added", v)); //to register the action to the parkingHistory 
             } else {
                 waitingQueue.enqueue(v);
             }
@@ -54,19 +56,25 @@ public class ParkingManager implements ParkingOperations {
 
     //when the user type the plate of the car in the remove space, the car will be removed from the parking space and will be add to history parking 
     public void removeVehicle(String plate) {
-        for (Car c : parkedCars) {
+        for (int i = 0; i < parkedCars.size(); i++) {
+
+            Car c = parkedCars.get(i);
+
             if (c.getPlateNumber().equals(plate)) {
-                parkedCars.remove(c);
-                parkingHistory.push(c);
+                parkedCars.remove(i);
+                parkingHistory.push(new ParkingRecord("Removed", c));
                 return;
             }
         }
 
         //when the user type the plate of the motorcycle in the remove space, the motorcycle will be removed from the parking space and will be add to history parking 
-        for (Motorcycle m : parkedMotos) {
+        for (int i = 0; i < parkedMotos.size(); i++) {
+
+            Motorcycle m = parkedMotos.get(i);
+
             if (m.getPlateNumber().equals(plate)) {
-                parkedMotos.remove(m);
-                parkingHistory.push(m);
+                parkedMotos.remove(i);
+                parkingHistory.push(new ParkingRecord("Removed", m)); // register the remove action in parkingHistory
                 return;
             }
         }
@@ -78,6 +86,7 @@ public class ParkingManager implements ParkingOperations {
         for (Car c : parkedCars) {
             if (c.getPlateNumber().equals(plate)) {
                 c.setOwnerName(newOwner);
+                parkingHistory.push(new ParkingRecord("Updated", c)); //to register the update action to the parkingHistory 
                 return;
             }
         }
@@ -85,6 +94,7 @@ public class ParkingManager implements ParkingOperations {
         for (Motorcycle m : parkedMotos) {
             if (m.getPlateNumber().equals(plate)) {
                 m.setOwnerName(newOwner);
+                parkingHistory.push(new ParkingRecord("Updated", m)); // register the update action to the parkingHistory 
                 return;
             }
         }
@@ -96,11 +106,11 @@ public class ParkingManager implements ParkingOperations {
         int carAvailable = totalCarSpace - parkedCars.size();
         int motoAvailable = totalMotorcycleSpace - parkedMotos.size();
 
-        return "Car parking spaces available: " + carAvailable + " Motorcycle parking spaces available: " + motoAvailable;
+        return "Car parking spaces available: " + carAvailable + "\n" + "Motorcycle parking spaces available: " + motoAvailable;
     }
-    
-    public String viewHistory(){
-    return parkingHistory.showHistory(); 
+
+    public String viewHistory() {
+        return parkingHistory.showHistory();
     }
 
 } //end of the class 
