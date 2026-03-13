@@ -120,7 +120,7 @@ The information is shown using a text area connected to the ParkingManager logic
 
 2. Run the main class:
 
-```ParkingManagerApplication```
+```ParkingManagerApp```
 
 3. Use the dashboard to navigate through the system.
 
